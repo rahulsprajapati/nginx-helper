@@ -39,4 +39,4 @@ before_script:
 - npm install
 
 script:
-- nightwatch
+- travis_wait 30 nightwatch
