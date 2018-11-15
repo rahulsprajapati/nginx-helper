@@ -14,9 +14,8 @@
   "dependencies": {
     "nightwatch": "~0.4.17"
   },
-
   "devDependencies": {
     "selenium-server": "2.45.0",
-    "phantomjs": "1.9.17"
+    "phantomjs": "^1.9.20"
   }
 }
