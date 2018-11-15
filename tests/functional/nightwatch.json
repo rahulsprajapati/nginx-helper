@@ -4,8 +4,14 @@
   "globals_path": "./res/constants.js",
 
   "selenium": {
-    "start_process": true,
-    "server_path": "./node_modules/selenium-server/lib/runner/selenium-server-standalone-3.141.5.jar"
+    "start_process": false,
+    "server_path": "./node_modules/selenium-server/lib/runner/selenium-server-standalone-3.141.5.jar",
+    "port" : 4444,
+    "cli_args" : {
+      "webdriver.gecko.driver": "node_modules/geckodriver/bin/geckodriver",
+      "webdriver.chrome.driver" : "",
+      "webdriver.edge.driver" : ""
+    }
   },
 
   "test_settings": {
