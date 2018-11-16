@@ -12,6 +12,7 @@
   "description": "",
   "contributors": [],
   "dependencies": {
+    "chromedriver": "^2.43.1",
     "nightwatch": "^1.0.12",
     "phantomjs-prebuilt": "^2.1.16"
   },

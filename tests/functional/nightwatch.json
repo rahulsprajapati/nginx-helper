@@ -9,7 +9,7 @@
     "port": 4421,
     "cli_args" : {
       "webdriver.gecko.driver": "node_modules/geckodriver/bin/geckodriver",
-      "webdriver.chrome.driver" : "",
+      "webdriver.chrome.driver" : "node_modules/chromedriver/bin/chromedriver",
       "webdriver.edge.driver" : ""
     }
   },
@@ -20,10 +20,14 @@
       "selenium_port": 4421,
       "selenium_host": "localhost",
       "silent": true,
-      "desiredCapabilities": {
-        "browserName": "phantomjs",
-        "javascriptEnabled": true
-      }
+	  "desiredCapabilities": {
+	    "javascriptEnabled": true,
+	    "acceptSslCerts": true,
+	    "browserName": "chrome",
+	    "chromeOptions" : {
+		    "args" : ["headless", "no-sandbox", "disable-gpu"]
+	    }
+	  }
     }
   }
 }
