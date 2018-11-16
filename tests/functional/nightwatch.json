@@ -21,8 +21,11 @@
       "selenium_host": "localhost",
       "silent": true,
       "desiredCapabilities": {
-        "browserName": "phantomjs",
-        "javascriptEnabled": true
+        "browserName": "chrome",
+        "javascriptEnabled": true,
+        "chromeOptions" : {
+          "args" : ["headless", "no-sandbox", "disable-gpu"]
+        }
       }
     }
   }
