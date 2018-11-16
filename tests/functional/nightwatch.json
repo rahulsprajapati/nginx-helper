@@ -4,7 +4,7 @@
   "globals_path": "./res/constants.js",
 
   "selenium": {
-    "start_process": false,
+    "start_process": true,
     "server_path": "./node_modules/selenium-server/lib/runner/selenium-server-standalone-3.141.5.jar",
     "port": 4421,
     "host": "127.0.0.1",
