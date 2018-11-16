@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "selenium-server": "3.141.5",
-    "phantomjs": "^1.9.20",
+    "phantomjs": "2.1.14",
     "geckodriver": "^1.8.1"
   }
 }
