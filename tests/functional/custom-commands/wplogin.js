@@ -8,7 +8,7 @@ exports.command = function(url, username, password) {
     .pause(500)
     .setValue('input[id="user_login"]', username)
     .setValue('input[id="user_pass"]', password)
-    .click('input[type=submit]')
+    .click('input[type=submit]');
 
   return this;
 };

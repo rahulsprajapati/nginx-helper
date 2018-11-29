@@ -5,19 +5,29 @@
 
   "selenium": {
     "start_process": true,
-    "server_path": "./node_modules/selenium-server/lib/runner/selenium-server-standalone-2.45.0.jar"
+    "server_path": "./node_modules/selenium-server/lib/runner/selenium-server-standalone-3.141.5.jar",
+    "port": 4421,
+    "host": "127.0.0.1",
+    "cli_args" : {
+      "webdriver.gecko.driver": "./node_modules/geckodriver/bin/geckodriver",
+      "webdriver.chrome.driver" : "./node_modules/chromedriver/bin/chromedriver"
+    }
   },
 
   "test_settings": {
     "default": {
       "launch_url": "http://localhost",
-      "selenium_port": 4444,
+      "selenium_port": 4421,
       "selenium_host": "localhost",
       "silent": true,
-      "desiredCapabilities": {
-        "browserName": "phantomjs",
-        "javascriptEnabled": true
-      }
+	  "desiredCapabilities": {
+	    "javascriptEnabled": true,
+	    "acceptSslCerts": true,
+	    "browserName": "chrome",
+	    "chromeOptions" : {
+		    "args" : ["headless", "no-sandbox", "disable-gpu"]
+	    }
+	  }
     }
   }
 }
