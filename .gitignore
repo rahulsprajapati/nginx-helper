@@ -13,3 +13,5 @@ tests/functional/node_modules/
 selenium-*.jar
 vendor
 .vscode/
+/tests/functional/tests_output
+/tests/functional/selenium-debug.log

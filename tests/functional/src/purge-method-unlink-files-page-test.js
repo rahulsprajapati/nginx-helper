@@ -5,7 +5,7 @@ module.exports = {
     var data = browser.globals;
     browser
       .maximizeWindow()
-      .wplogin(data.URLS.LOGIN, data.TESTADMINUSERNAME, data.TESTADMINPASSWORD)
+      .wplogin()
       .nginxSettings()
       .pause(2000)
       .getAttribute('#enable_purge', "checked", function(result) {
@@ -27,9 +27,10 @@ module.exports = {
     browser
       .goToAddNewPage()
       .clearValue('#title')
-      .clearValue('textarea[id="content"]')
+      // .clearValue('textarea[id="content"]')
       .setValue('#title', 'test-page')
-      .setValue('textarea[id="content"]', "test page created for testing")
+      .execute('tinyMCE.activeEditor.setContent("test page created for testing");')
+      // .setValue('textarea[id="content"]', "test page created for testing")
       .pause(1000)
       .click('#publish')
       .pause(2000)
@@ -40,17 +41,15 @@ module.exports = {
         .wplogout()
         .pause(500)
         .url(data.URLS.LOGIN + urlp)
-        .assert.containsText("#main", "test page created for testing")
+        .assert.containsText(".entry-content", "test page created for testing")
 
       })
-
-
-  },
+ },
 
   'Step three : Update Content in Page ': function(browser) {
     var data = browser.globals;
     browser
-      .wplogin(data.URLS.LOGIN, data.TESTADMINUSERNAME, data.TESTADMINPASSWORD)
+      .wplogin()
       .url(data.URLS.LOGIN + urlp)
       .click('.post-edit-link')
       .clearValue('#title')
@@ -59,14 +58,26 @@ module.exports = {
       .pause(2000)
       .wplogout()
       .url(data.URLS.LOGIN + urlp)
-      .verify.containsText(".entry-title", "test page title updated")
-      .verify.containsText(".site-main", "test page created for testing")
+      .verify.containsText(".entry-title", "TEST PAGE TITLE UPDATED")
+      .verify.containsText(".entry-content", "test page created for testing")
+
 },
 
   'Step four : Page comment check ': function(browser) {
     var data = browser.globals;
     browser
-      .wplogin(data.URLS.LOGIN, data.TESTADMINUSERNAME, data.TESTADMINPASSWORD)
+      .wplogin()
+      .url(data.URLS.LOGIN + urlp)
+      .click('.post-edit-link')
+      .getAttribute('#comment_status', "checked", function(result) {
+        if (result.value) {
+          console.log('check box is already enabled');
+        } else {
+          browser.click('#comment_status');
+          browser.click('#publish');
+        }
+      })
+
       .url(data.URLS.LOGIN + urlp)
       .setValue('textarea[name="comment"]', 'this is a demo test comment on page')
       .click('input[value="Post Comment"]')
@@ -74,14 +85,13 @@ module.exports = {
       .wplogout()
       .url(data.URLS.LOGIN + urlp)
       .assert.containsText("#main", "this is a demo test comment on page")
+
 },
-
-
 
   'Step five : move to trash ': function(browser) {
     var data = browser.globals;
     browser
-      .wplogin(data.URLS.LOGIN, data.TESTADMINUSERNAME, data.TESTADMINPASSWORD)
+      .wplogin()
       .url(data.URLS.LOGIN + urlp)
       .click('.post-edit-link')
       .click('xpath', '//a[text()="Move to Trash"]')
