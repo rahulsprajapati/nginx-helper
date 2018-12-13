@@ -33,6 +33,7 @@ before_script:
 - sudo ee site create wp.localtest.me --wpfc --user=ADMINUSER --email=easyengine@rtcamp.com --pass=ADMINPASS
 - sudo sed -i '/^127.0.0.1/ s/$/ wp.localtest.me/' /etc/hosts
 - sudo sed -i '/^127.0.0.1/ s/$/ localhost/' /etc/hosts
+- cat /etc/hosts
 - sudo chmod 777 -R /var/www
 - sudo nginx -t
 - sudo service nginx reload
@@ -53,4 +54,4 @@ before_script:
 script:
 - whereis google-chrome-stable
 - whereis chromedriver
-- nightwatch --verbose
+- nightwatch

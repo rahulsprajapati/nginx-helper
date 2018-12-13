@@ -10,7 +10,7 @@
     "host": "127.0.0.1",
     "cli_args" : {
       "webdriver.gecko.driver": "./node_modules/geckodriver/bin/geckodriver",
-      "webdriver.chrome.driver" : "./node_modules/chromedriver/bin/chromedriver"
+      "webdriver.chrome.driver" : "/usr/local/bin/chromedriver"
     }
   },
 
