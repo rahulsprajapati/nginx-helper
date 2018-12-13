@@ -27,7 +27,7 @@ module.exports = {
     browser
       .goToAddNewPost()
       .clearValue('#title')
-      .clearValue('textarea[id="content"]')
+      .execute('tinyMCE.activeEditor.setContent("");')
       .setValue('#title', 'test title for nightwatch test')
       .execute('tinyMCE.activeEditor.setContent("test post for nightwatch test");')
       // .setValue('textarea[id="content"]', "test post for nightwatch test")
@@ -123,7 +123,7 @@ module.exports = {
         .wplogin()
         .goToAddNewPost()
         .clearValue('#title')
-        .clearValue('textarea[id="content"]')
+        .execute('tinyMCE.activeEditor.setContent("");')
         .setValue('#title', 'test title for draft post test')
         .execute('tinyMCE.activeEditor.setContent("test post for draft post test");')
         // .setValue('textarea[id="content"]', "test post for draft post test")
