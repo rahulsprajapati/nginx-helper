@@ -38,6 +38,7 @@ before_script:
 - cd /var/www/wp.localtest.me/htdocs/
 - wp plugin install classic-editor --activate
 - wp plugin activate --all
+- wp theme activate twentyseventeen
 - cd $PLUGIN_DIR
 - cd tests/functional/
 - npm install -g nightwatch
@@ -45,4 +46,4 @@ before_script:
 
 script:
 - whereis google-chrome-stable
-- nightwatch
+- nightwatch ./src/purge-method-get-request-post-test.js
