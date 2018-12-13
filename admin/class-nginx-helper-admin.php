@@ -262,6 +262,7 @@ class Nginx_Helper_Admin {
 			'redis_port'                       => '6379',
 			'redis_prefix'                     => 'nginx-cache:',
 			'purge_url'                        => '',
+			'redis_enabled_by_constant'        => 0,
 		);
 
 	}
@@ -316,7 +317,7 @@ class Nginx_Helper_Admin {
 			$setting_page = 'options-general.php';
 		}
 
-		$settings_link = '<a href="' . admin_url( $setting_page . '?page=nginx' ) . '">' . __( 'Settings', 'nginx-helper' ) . '</a>';
+		$settings_link = '<a href="' . network_admin_url( $setting_page . '?page=nginx' ) . '">' . __( 'Settings', 'nginx-helper' ) . '</a>';
 		array_unshift( $links, $settings_link );
 
 		return $links;
@@ -602,7 +603,7 @@ class Nginx_Helper_Admin {
 			! $this->options['enable_purge'] ||
 			empty( $this->options['future_posts'] ) ||
 			empty( $this->options['future_posts'][ $blog_id ] ) ||
-			empty( isset( $this->options['future_posts'][ $blog_id ][ $post_id ] ) ) ||
+			isset( $this->options['future_posts'][ $blog_id ][ $post_id ] ) ||
 			wp_is_post_revision( $post_id )
 		) {
 			return;
