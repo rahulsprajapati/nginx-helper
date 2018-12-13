@@ -17,6 +17,7 @@ module.exports = {
         }
       })
       .enableAllPurgeCheckbox()
+      .pause(1000)
       .click('#purge_method_get_request')
       .click('#smart_http_expire_save')
       .pause(1000)
