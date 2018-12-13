@@ -27,10 +27,9 @@ module.exports = {
     browser
       .goToAddNewPage()
       .clearValue('#title')
-      // .clearValue('textarea[id="content"]')
+      .execute('tinyMCE.activeEditor.setContent("");')
       .setValue('#title', 'test-page')
       .execute('tinyMCE.activeEditor.setContent("test page created for testing");')
-      // .setValue('textarea[id="content"]', "test page created for testing")
       .pause(1000)
       .click('#publish')
       .pause(2000)
