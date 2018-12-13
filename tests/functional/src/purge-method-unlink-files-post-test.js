@@ -17,6 +17,7 @@ module.exports = {
         }
       })
       .enableAllPurgeCheckbox()
+      .pause(1000)
       .click('#purge_method_unlink_files')
       .click('#smart_http_expire_save')
       .pause(1000)
@@ -27,7 +28,6 @@ module.exports = {
       .goToAddNewPost()
       .clearValue('#title')
       .execute('tinyMCE.activeEditor.setContent("");')
-      .clearValue('.wp-editor-area')
       .setValue('#title', 'test title for nightwatch test')
       .execute('tinyMCE.activeEditor.setContent("test post for nightwatch test");')
       .pause(1000)
