@@ -46,4 +46,4 @@ before_script:
 
 script:
 - whereis google-chrome-stable
-- nightwatch ./src/purge-method-get-request-post-test.js --verbose
+- nightwatch ./src/purge-method-get-request-post-test.js
