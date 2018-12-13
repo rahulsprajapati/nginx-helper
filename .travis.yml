@@ -4,10 +4,19 @@ language: node_js
 node_js:
 - "8.12.0"
 
+addons: # get google-chrome-stable
+  chrome: stable
 
 before_install:
 - rm -rf ~/.gnupg
 
+install: # Install ChromeDriver (64bits; replace 64 with 32 for 32bits).
+- wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -P ~/
+- unzip ~/chromedriver_linux64.zip -d ~/
+- rm ~/chromedriver_linux64.zip
+- sudo mv -f ~/chromedriver /usr/local/share/
+- sudo chmod +x /usr/local/share/chromedriver
+- sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 
 before_script:
 - export PLUGIN_DIR=$(pwd)
@@ -39,6 +48,9 @@ before_script:
 - cd tests/functional/
 - npm install -g nightwatch
 - npm install
+- npm i chromedriver --save
 
 script:
-- nightwatch
+- whereis google-chrome-stable
+- whereis chromedriver
+- nightwatch --verbose
