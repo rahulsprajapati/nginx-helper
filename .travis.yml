@@ -21,7 +21,7 @@ before_script:
 - source /etc/bash_completion.d/ee_auto.rc
 - sudo ee -v
 - sudo lsb_release  -a
-- sudo ee site create wp.localtest.me --wpfc --user=ADMINUSER --email=prabuddha.chakraborty@rtcamp.com --pass=ADMINPASS
+- sudo ee site create wp.localtest.me --wpfc --user=ADMINUSER --email=easyengine@rtcamp.com --pass=ADMINPASS
 - sudo sed -i '/^127.0.0.1/ s/$/ wp.localtest.me/' /etc/hosts
 - sudo sed -i '/^127.0.0.1/ s/$/ localhost/' /etc/hosts
 - sudo chmod 777 -R /var/www

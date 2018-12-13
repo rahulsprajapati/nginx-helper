@@ -9,7 +9,7 @@ module.exports ={
     TESTADMINPASSWORD: 'ADMINPASS',
   //Home site url enter here
    URLS: {
-          LOGIN: 'http://localhost/ngnix/'
+          LOGIN: 'http://wp.localtest.me/'
    }
 
 };
