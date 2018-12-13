@@ -42,7 +42,6 @@ before_script:
 - cd tests/functional/
 - npm install -g nightwatch
 - npm install
-- npm i chromedriver --save
 
 script:
 - whereis google-chrome-stable
