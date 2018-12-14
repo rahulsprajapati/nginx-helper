@@ -72,7 +72,7 @@ module.exports = {
       .click('#show-settings-link')
       .getAttribute('#commentstatusdiv-hide', "checked", function(result) {
           if (result.value) {
-              console.log('Comment is already enabled');
+              console.log('Comment show is already enabled');
           } else {
               browser.click('#commentstatusdiv-hide');
           }
