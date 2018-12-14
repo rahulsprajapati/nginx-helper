@@ -71,7 +71,14 @@ module.exports = {
       .wplogin()
       .url(data.URLS.LOGIN + urlp)
       .click('.post-edit-link')
-      .pause(2000)
+      .click('#show-settings-link')
+      .getAttribute('#commentstatusdiv-hide', "checked", function(result) {
+        if (result.value) {
+          console.log('Comment is already enabled');
+        } else {
+          browser.click('#commentstatusdiv-hide');
+        }
+      })
       .getAttribute('#comment_status', "checked", function(result) {
         if (result.value) {
           console.log('check box is already enabled');
