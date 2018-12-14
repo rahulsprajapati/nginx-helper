@@ -90,12 +90,13 @@ module.exports = {
       .pause(2000)
 
       .url(data.URLS.LOGIN + urlp)
-      .pause(2000)
+      .waitForElementVisible('body', 1000)
       .setValue('textarea[name="comment"]', 'this is a demo test comment on page')
       .click('input[value="Post Comment"]')
       .assert.containsText("#main", "this is a demo test comment on page")
       .wplogout()
       .url(data.URLS.LOGIN + urlp)
+      .waitForElementVisible('body', 1000)
       .assert.containsText("#main", "this is a demo test comment on page")
 },
 
