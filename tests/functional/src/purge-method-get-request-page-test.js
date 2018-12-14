@@ -87,6 +87,7 @@ module.exports = {
           browser.click('#publish');
         }
       })
+      .pause(2000)
 
       .url(data.URLS.LOGIN + urlp)
       .setValue('textarea[name="comment"]', 'this is a demo test comment on page')
