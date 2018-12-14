@@ -90,6 +90,7 @@ module.exports = {
       .pause(2000)
 
       .url(data.URLS.LOGIN + urlp)
+      .pause(2000)
       .setValue('textarea[name="comment"]', 'this is a demo test comment on page')
       .click('input[value="Post Comment"]')
       .assert.containsText("#main", "this is a demo test comment on page")
