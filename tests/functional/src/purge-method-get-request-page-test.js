@@ -79,6 +79,7 @@ module.exports = {
           browser.click('#commentstatusdiv-hide');
         }
       })
+      .pause(2000)
       .getAttribute('#comment_status', "checked", function(result) {
         if (result.value) {
           console.log('check box is already enabled');
